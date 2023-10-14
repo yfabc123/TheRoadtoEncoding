@@ -1,4 +1,4 @@
-// 测试静态成员
+// 测试静态函数
 #include <iostream>
 #include <string.h>
 using namespace std;
@@ -10,10 +10,11 @@ public:
     void show(void);
     ~String();
     String(const String &obj);
-    static int memoryUsed;
+    static void count_memor();
 
 private:
     char *str = nullptr;
+    static int memoryUsed;
 };
 int String::memoryUsed = 0;
 // 析构
@@ -57,6 +58,7 @@ String::String(const String &obj)
         strcpy(this->str, obj.str);
     }
 }
+// 输出字符串
 void String::show(void)
 {
     if (this->str)
@@ -72,20 +74,27 @@ void String::show(void)
     }
 }
 
+// 测试拷贝构造
 String fun(String obj)
 {
     String temp = obj;
     return temp;
 }
+
+void String ::count_memor()
+{
+    cout << memoryUsed << endl;
+}
+
 int main()
 {
     String a("hello");
-    cout << String::memoryUsed << endl;
+    String::count_memor();
     fun(a);
-    cout << String::memoryUsed << endl;
+    String::count_memor();
 
     String b = a;
-    cout << String::memoryUsed << endl;
+    String::count_memor();
 
     return 0;
 }
