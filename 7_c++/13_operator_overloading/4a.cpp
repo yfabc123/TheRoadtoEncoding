@@ -13,17 +13,17 @@ public:
     String operator+(const String &op2);
     String &operator++();   // 前置自增运算符重载
     String operator++(int); // 后置自增运算符重载
-    void operator=(const String &op2);
+    String &operator=(const String &op2);
 
 private:
     char *str;
 };
-void String::operator=(const String &op2)
+String &String::operator=(const String &op2)
 {
     if (this == &op2)
     {
         cout << "两对象相同无需赋值" << endl;
-        return;
+        return *this;
     }
     if (this->str)
     {
@@ -39,6 +39,7 @@ void String::operator=(const String &op2)
     {
         this->str = NULL;
     }
+    return *this;
 }
 
 String &String::operator++()
@@ -165,13 +166,13 @@ String operator+(const String &op1, const String &op2)
 }
 int main()
 {
-    String str1;
-    String str2("13");
+    String str1("hello");
+    String str2("asdf");
     str1.show();
     cout << "====================" << endl;
 
-    str1.operator=(str1);
-    str1.show();
+    String str3 = str1 = str2;
+    str3.show();
 
     return 0;
 }

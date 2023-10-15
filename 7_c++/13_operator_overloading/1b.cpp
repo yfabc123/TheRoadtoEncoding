@@ -105,9 +105,10 @@ int main()
 {
     String str1("hello");
     String str2("1234");
-    String str3 = str1 +  str2;
-    //str1.operator+(str2);
-    str3.show();
+    String str3 = str1 + str2;
+    String str4 = str3 + str1;
+    // str1.operator+(str2);
+    str4.show();
 
     return 0;
 }
