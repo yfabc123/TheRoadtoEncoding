@@ -109,6 +109,9 @@ int main()
     String str4 = str3 + str1;
     // str1.operator+(str2);
     str4.show();
+    string a = "234";
+    string b = "123";
+    string c = a + b;
 
     return 0;
 }
