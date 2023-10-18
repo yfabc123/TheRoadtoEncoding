@@ -2,7 +2,7 @@
 
 using namespace std;
 
-template <typename T, typename m, typename n>
+template <typename T, int m, int n>
 int function(const T (&ra1)[m], const T (&ra2)[n])
 {
     cout << m << "," << n << endl;
@@ -10,10 +10,10 @@ int function(const T (&ra1)[m], const T (&ra2)[n])
 }
 int main(void)
 {
-    // int a[10];
-    // int b[20];
-    // function(a, b);
-    // function<int, 10, 20>(a, b);
+    int a[10];
+    int b[20];
+    function(a, b);
+    function<int, 10, 20>(a, b);
 
     return 0;
 }

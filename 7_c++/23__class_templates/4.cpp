@@ -2,29 +2,18 @@
 #include <string>
 using namespace std;
 
-template <double d>
-double process(double v)
-{
-    return v * d;
-};
-
-// template <string name>
-// class MyClass
-// {
-// };
-
 template <char const *name>
 class MyClass
 {
+public:
+    int a;
 };
-
 char const s[] = "hello";
-MyClass<s> obj;
-
-template <char const *name>
-class MyClass
+int main()
 {
-};
+    MyClass<s> obj;
+    obj.a = 1;
+    cout << obj.a << endl;
 
-extern char const s[] = "hello";
-MyClass<s> obj;
+    return 0;
+}
