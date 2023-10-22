@@ -68,7 +68,7 @@ int main()
     function<int(int, int)> fun2 = Add();
     function<int(int, int)> fun3 = b;
     function<int(int, int)> fun4 = lambda;
-    cout << fun4(1, 2) << endl;
+    cout << std_function(Add(),1,2) << endl;
 
     return 0;
 }

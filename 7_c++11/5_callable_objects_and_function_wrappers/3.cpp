@@ -42,29 +42,21 @@ int std_function(function<int(int, int)> func_ojb, int a, int b)
 }
 int main()
 {
-    cout << add(1, 2) << endl;
+    // lambda表达式
+    auto mod = [](int a, int b)
+    { return a % b; };
 
-    Add a;
-    cout << Add()(1, 2) << endl;
+    auto a = bind(add, 10, 20);
+    cout << a() << endl;
 
-    Calc b;
-    cout << b.add(1, 2) << endl;
+    auto c = bind(mod, 10, 20);
+    cout << c() << endl;
 
-    cout << b(1, 2) << endl;
-
-    cout << calc(&b, &Calc::add, 1, 2) << endl;
-
-    auto lambda = [](int a, int b)
-    {
-        return a + b;
-    };
-    cout << lambda(1, 2) << endl;
-    cout << "---------------------------" << endl;
-    function<int(int, int)> fun1 = add;
-    function<int(int, int)> fun2 = Add();
-    function<int(int, int)> fun3 = b;
-    function<int(int, int)> fun4 = lambda;
-    cout << fun4(1, 2) << endl;
+    Calc object;
+    auto d = bind(&Calc::add, &object, std::placeholders::_1, std::placeholders::_2);
+    cout << d(4, 4) << endl;
+    cout << std_function(bind(&Calc::add, &object, std::placeholders::_1, std::placeholders::_2), 3, 4) << endl;
+    cout << std_function(d, 1, 2) << endl;
 
     return 0;
 }
