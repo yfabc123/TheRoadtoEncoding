@@ -1,5 +1,7 @@
 #include "RealGirl.hpp"
 #include "Proxy.hpp"
+#include<limits.h>
+#include<float.h>
 int main()
 {
     Girl *girl = new RealGirl("婷婷");
