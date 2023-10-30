@@ -90,7 +90,7 @@ public:
 private:
     int x;
     int y;
-    function<void()> fun_arr[4]{
+    function<void(void)> fun_arr[4]{
         bind(&Cursor::moveUp, this),
         bind(&Cursor::moveDown, this),
         bind(&Cursor::moveLeft, this),
